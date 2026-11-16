@@ -1,0 +1,92 @@
+
+firmware.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+08000008 <reset_handler>:
+ 8000008:	b580      	push	{r7, lr}
+ 800000a:	b084      	sub	sp, #16
+ 800000c:	af00      	add	r7, sp, #0
+ 800000e:	4b10      	ldr	r3, [pc, #64]	@ (8000050 <reset_handler+0x48>)
+ 8000010:	60fb      	str	r3, [r7, #12]
+ 8000012:	4b10      	ldr	r3, [pc, #64]	@ (8000054 <reset_handler+0x4c>)
+ 8000014:	60bb      	str	r3, [r7, #8]
+ 8000016:	e007      	b.n	8000028 <reset_handler+0x20>
+ 8000018:	68ba      	ldr	r2, [r7, #8]
+ 800001a:	1d13      	adds	r3, r2, #4
+ 800001c:	60bb      	str	r3, [r7, #8]
+ 800001e:	68fb      	ldr	r3, [r7, #12]
+ 8000020:	1d19      	adds	r1, r3, #4
+ 8000022:	60f9      	str	r1, [r7, #12]
+ 8000024:	6812      	ldr	r2, [r2, #0]
+ 8000026:	601a      	str	r2, [r3, #0]
+ 8000028:	68fb      	ldr	r3, [r7, #12]
+ 800002a:	4a0b      	ldr	r2, [pc, #44]	@ (8000058 <reset_handler+0x50>)
+ 800002c:	4293      	cmp	r3, r2
+ 800002e:	d3f3      	bcc.n	8000018 <reset_handler+0x10>
+ 8000030:	4b0a      	ldr	r3, [pc, #40]	@ (800005c <reset_handler+0x54>)
+ 8000032:	607b      	str	r3, [r7, #4]
+ 8000034:	e004      	b.n	8000040 <reset_handler+0x38>
+ 8000036:	687b      	ldr	r3, [r7, #4]
+ 8000038:	1d1a      	adds	r2, r3, #4
+ 800003a:	607a      	str	r2, [r7, #4]
+ 800003c:	2200      	movs	r2, #0
+ 800003e:	601a      	str	r2, [r3, #0]
+ 8000040:	687b      	ldr	r3, [r7, #4]
+ 8000042:	4a07      	ldr	r2, [pc, #28]	@ (8000060 <reset_handler+0x58>)
+ 8000044:	4293      	cmp	r3, r2
+ 8000046:	d3f6      	bcc.n	8000036 <reset_handler+0x2e>
+ 8000048:	f000 f80c 	bl	8000064 <main>
+ 800004c:	bf00      	nop
+ 800004e:	e7fd      	b.n	800004c <reset_handler+0x44>
+ 8000050:	20000000 	.word	0x20000000
+ 8000054:	080000cc 	.word	0x080000cc
+ 8000058:	20000000 	.word	0x20000000
+ 800005c:	20000000 	.word	0x20000000
+ 8000060:	20000000 	.word	0x20000000
+
+08000064 <main>:
+ 8000064:	b480      	push	{r7}
+ 8000066:	b083      	sub	sp, #12
+ 8000068:	af00      	add	r7, sp, #0
+ 800006a:	4b14      	ldr	r3, [pc, #80]	@ (80000bc <main+0x58>)
+ 800006c:	681b      	ldr	r3, [r3, #0]
+ 800006e:	4a13      	ldr	r2, [pc, #76]	@ (80000bc <main+0x58>)
+ 8000070:	f043 0308 	orr.w	r3, r3, #8
+ 8000074:	6013      	str	r3, [r2, #0]
+ 8000076:	4b12      	ldr	r3, [pc, #72]	@ (80000c0 <main+0x5c>)
+ 8000078:	681b      	ldr	r3, [r3, #0]
+ 800007a:	4a11      	ldr	r2, [pc, #68]	@ (80000c0 <main+0x5c>)
+ 800007c:	f023 7380 	bic.w	r3, r3, #16777216	@ 0x1000000
+ 8000080:	6013      	str	r3, [r2, #0]
+ 8000082:	4b0f      	ldr	r3, [pc, #60]	@ (80000c0 <main+0x5c>)
+ 8000084:	681b      	ldr	r3, [r3, #0]
+ 8000086:	4a0e      	ldr	r2, [pc, #56]	@ (80000c0 <main+0x5c>)
+ 8000088:	f023 7300 	bic.w	r3, r3, #33554432	@ 0x2000000
+ 800008c:	6013      	str	r3, [r2, #0]
+ 800008e:	4b0c      	ldr	r3, [pc, #48]	@ (80000c0 <main+0x5c>)
+ 8000090:	681b      	ldr	r3, [r3, #0]
+ 8000092:	4a0b      	ldr	r2, [pc, #44]	@ (80000c0 <main+0x5c>)
+ 8000094:	f043 7380 	orr.w	r3, r3, #16777216	@ 0x1000000
+ 8000098:	6013      	str	r3, [r2, #0]
+ 800009a:	2300      	movs	r3, #0
+ 800009c:	607b      	str	r3, [r7, #4]
+ 800009e:	e002      	b.n	80000a6 <main+0x42>
+ 80000a0:	687b      	ldr	r3, [r7, #4]
+ 80000a2:	3301      	adds	r3, #1
+ 80000a4:	607b      	str	r3, [r7, #4]
+ 80000a6:	687b      	ldr	r3, [r7, #4]
+ 80000a8:	4a06      	ldr	r2, [pc, #24]	@ (80000c4 <main+0x60>)
+ 80000aa:	4293      	cmp	r3, r2
+ 80000ac:	d9f8      	bls.n	80000a0 <main+0x3c>
+ 80000ae:	4b06      	ldr	r3, [pc, #24]	@ (80000c8 <main+0x64>)
+ 80000b0:	681b      	ldr	r3, [r3, #0]
+ 80000b2:	4a05      	ldr	r2, [pc, #20]	@ (80000c8 <main+0x64>)
+ 80000b4:	f483 5380 	eor.w	r3, r3, #4096	@ 0x1000
+ 80000b8:	6013      	str	r3, [r2, #0]
+ 80000ba:	e7ee      	b.n	800009a <main+0x36>
+ 80000bc:	40023830 	.word	0x40023830
+ 80000c0:	40020c00 	.word	0x40020c00
+ 80000c4:	0007a11f 	.word	0x0007a11f
+ 80000c8:	40020c14 	.word	0x40020c14
